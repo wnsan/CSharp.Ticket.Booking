@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CSharp.Ticket.Booking.DataAccess.Database\CSharp.Ticket.Booking.DataAccess.Database.csproj" />
+    <ProjectReference Include="..\CSharp.Ticket.Booking.DataAccess\CSharp.Ticket.Booking.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>
