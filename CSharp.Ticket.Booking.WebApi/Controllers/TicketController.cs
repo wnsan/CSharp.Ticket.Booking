@@ -17,9 +17,9 @@ namespace CSharp.Ticket.Booking.WebApi.Controllers
         }
 
         [HttpPut]
-        public IActionResult Booking(Booking booking)
+        public async Task<IActionResult> Booking(Booking booking)
         {
-            var tickets = _ticketPoolRepository.GetTickets(_logger, booking.TicketAmount, Guid.NewGuid());
+            var tickets = await _ticketPoolRepository.GetTickets(_logger, booking.TicketAmount, Guid.NewGuid());
             return Ok(tickets);
         }
 
@@ -28,6 +28,13 @@ namespace CSharp.Ticket.Booking.WebApi.Controllers
         {
             var tickets = _ticketPoolRepository.GetTicketCount();
             return Ok(tickets);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PrepareInMemoryData()
+        {
+            await _ticketPoolRepository.PrepareDataAsync(null);
+            return Ok();
         }
     }
 }

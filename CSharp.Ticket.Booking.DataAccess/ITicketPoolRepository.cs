@@ -4,8 +4,11 @@ namespace CSharp.Ticket.Booking.DataAccess
 {
     public interface ITicketPoolRepository
     {
-        List<Ticket> GetTickets(ILogger logger, int numberOfTicket, Guid bookingId);
+        Task<List<Ticket>> GetTickets(ILogger logger, int numberOfTicket, Guid bookingId);
 
         int GetTicketCount();
+
+
+        Task PrepareDataAsync(List<Ticket> tickets);
     }
 }

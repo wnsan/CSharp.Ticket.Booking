@@ -14,6 +14,10 @@ builder.Services.AddDbContext<TicketDbContext>(option =>
 
 
 });
+//builder.Services.AddStackExchangeRedisCache(options =>
+//{
+//    options.Configuration = "localhost:6379";
+//});
 
 builder.Services.AddScoped<ITicketPoolRepository, TicketPoolRepository>();
 

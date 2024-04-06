@@ -6,7 +6,6 @@
         public Guid EventId { get; set; }
         public string Status { get; set; }
         public DateTime? ExpireDate { get; set; }
-
         public Guid? BookingId { get; set; }
 
     }

@@ -16,15 +16,18 @@ namespace CSharp.Ticket.Booking.DataAccess.Database
             return _ticketDbContext.Tickets.Where(c => c.Status == "available").Count();
         }
 
-        public List<Ticket> GetTickets(ILogger logger, int numberOfTicket, Guid bookingId)
+        public async Task<List<Ticket>> GetTickets(ILogger logger, int numberOfTicket, Guid bookingId)
         {
+            var repo = new InMemoryDatabase.TicketPoolRepository();
+            var result = await repo.GetTickets(logger, numberOfTicket, bookingId);
+            return result;
             if (numberOfTicket > 5)
             {
                 logger.LogInformation("number of ticket = " + numberOfTicket);
                 return new List<Ticket>();
             }
             DateTime? expiredDate = DateTime.UtcNow.AddMinutes(10);
-            var tickets = _ticketDbContext.Tickets.Where(c => c.BookingId == bookingId).ToList();
+            var tickets = await _ticketDbContext.Tickets.Where(c => c.BookingId == bookingId).ToListAsync();
             if (tickets.FirstOrDefault() != null)
             {
                 expiredDate = tickets.FirstOrDefault().ExpireDate;
@@ -92,6 +95,13 @@ namespace CSharp.Ticket.Booking.DataAccess.Database
                     }
                 }
             }
+        }
+
+        public async Task PrepareDataAsync(List<Ticket> tickets)
+        {
+            var redis = new InMemoryDatabase.TicketPoolRepository();
+            tickets = _ticketDbContext.Tickets.ToList();
+            await redis.PrepareDataAsync(tickets);
         }
     }
 }

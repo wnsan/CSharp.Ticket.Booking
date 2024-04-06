@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Ticket.Booking.WebApi", "CSharp.Ticket.Booking.WebApi\CSharp.Ticket.Booking.WebApi.csproj", "{9FF42C1C-FC7B-4D4E-9DAD-BEC6E041BC8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Ticket.Booking.WebApi", "CSharp.Ticket.Booking.WebApi\CSharp.Ticket.Booking.WebApi.csproj", "{9FF42C1C-FC7B-4D4E-9DAD-BEC6E041BC8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Ticket.Booking.Service", "CSharp.Ticket.Booking.Service\CSharp.Ticket.Booking.Service.csproj", "{A4E442C1-846D-4B5D-B73E-6AF61EAF4ACA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Ticket.Booking.Service", "CSharp.Ticket.Booking.Service\CSharp.Ticket.Booking.Service.csproj", "{A4E442C1-846D-4B5D-B73E-6AF61EAF4ACA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Ticket.Booking.DataAccess", "CSharp.Ticket.Booking.DataAccess\CSharp.Ticket.Booking.DataAccess.csproj", "{B39390A1-E220-478F-BE6E-B1DE175BB7B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Ticket.Booking.DataAccess", "CSharp.Ticket.Booking.DataAccess\CSharp.Ticket.Booking.DataAccess.csproj", "{B39390A1-E220-478F-BE6E-B1DE175BB7B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Ticket.Booking.DataAccess.Database", "CSharp.Ticket.Booking.DataAccess.Database\CSharp.Ticket.Booking.DataAccess.Database.csproj", "{37B11BC0-F23A-453C-BF23-8EBBFAF6FF44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Ticket.Booking.DataAccess.Database", "CSharp.Ticket.Booking.DataAccess.Database\CSharp.Ticket.Booking.DataAccess.Database.csproj", "{37B11BC0-F23A-453C-BF23-8EBBFAF6FF44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Ticket.Booking.DataAccess.InMemoryDatabase", "CSharp.Ticket.Booking.DataAccess.InMemoryDatabase\CSharp.Ticket.Booking.DataAccess.InMemoryDatabase.csproj", "{2EB545BC-087C-4790-B787-8BFD90AE65E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{37B11BC0-F23A-453C-BF23-8EBBFAF6FF44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37B11BC0-F23A-453C-BF23-8EBBFAF6FF44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37B11BC0-F23A-453C-BF23-8EBBFAF6FF44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EB545BC-087C-4790-B787-8BFD90AE65E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EB545BC-087C-4790-B787-8BFD90AE65E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EB545BC-087C-4790-B787-8BFD90AE65E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EB545BC-087C-4790-B787-8BFD90AE65E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
