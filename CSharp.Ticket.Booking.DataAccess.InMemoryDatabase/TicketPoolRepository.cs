@@ -16,11 +16,12 @@ namespace CSharp.Ticket.Booking.DataAccess.InMemoryDatabase
         private static SearchCommands ft;
         private static JsonCommands json;
         private static List<string> l;
-        public TicketPoolRepository()
+        public TicketPoolRepository(string redisUrl)
         {
             if (null == _redis)
             {
-                _redis = ConnectionMultiplexer.Connect("localhost:6379,ConnectTimeout=10000", c =>
+
+                _redis = ConnectionMultiplexer.Connect($"{redisUrl},ConnectTimeout=10000", c =>
                 {
                     c.AbortOnConnectFail = false;
                     c.ConnectTimeout = 30000;

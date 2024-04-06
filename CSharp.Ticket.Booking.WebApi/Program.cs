@@ -19,8 +19,12 @@ builder.Services.AddDbContext<TicketDbContext>(option =>
 //    options.Configuration = "localhost:6379";
 //});
 
-builder.Services.AddScoped<ITicketPoolRepository, TicketPoolRepository>();
-
+builder.Services.AddScoped<ITicketPoolRepository>(c =>
+{
+    var config = c.GetService<IConfiguration>();
+    var db = c.GetService<TicketDbContext>();
+    return new TicketPoolRepository(db, config["RedisConnection"]);
+});
 
 var app = builder.Build();
 

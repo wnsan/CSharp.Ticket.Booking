@@ -6,9 +6,11 @@ namespace CSharp.Ticket.Booking.DataAccess.Database
     public class TicketPoolRepository : ITicketPoolRepository
     {
         private readonly TicketDbContext _ticketDbContext;
-        public TicketPoolRepository(TicketDbContext ticketDbContext)
+        private readonly string _redis;
+        public TicketPoolRepository(TicketDbContext ticketDbContext, string redis)
         {
             _ticketDbContext = ticketDbContext;
+            _redis = redis;
         }
 
         public int GetTicketCount()
@@ -18,7 +20,9 @@ namespace CSharp.Ticket.Booking.DataAccess.Database
 
         public async Task<List<Ticket>> GetTickets(ILogger logger, int numberOfTicket, Guid bookingId)
         {
-            var repo = new InMemoryDatabase.TicketPoolRepository();
+
+            // D:\confidential\job\Learning\CSharp.Ticket.Booking>docker-compose up --scale server=1
+            var repo = new InMemoryDatabase.TicketPoolRepository(_redis);
             var result = await repo.GetTickets(logger, numberOfTicket, bookingId);
             return result;
             if (numberOfTicket > 5)
@@ -99,7 +103,7 @@ namespace CSharp.Ticket.Booking.DataAccess.Database
 
         public async Task PrepareDataAsync(List<Ticket> tickets)
         {
-            var redis = new InMemoryDatabase.TicketPoolRepository();
+            var redis = new InMemoryDatabase.TicketPoolRepository(_redis);
             tickets = _ticketDbContext.Tickets.ToList();
             await redis.PrepareDataAsync(tickets);
         }
